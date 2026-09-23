@@ -8,3 +8,4 @@
     }
 }
 pnpm add express
+pnpm add -D nodemon

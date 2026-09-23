@@ -4,6 +4,9 @@
     "devDependencies": {},
     "type": "module",
     "scripts": {
+    # Other fields...
+    "scripts": {
+        "dev": "nodemon --env-file=.env server.js",
         "start": "node server.js"
     }
 }

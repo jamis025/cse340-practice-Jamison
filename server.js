@@ -17,6 +17,15 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on http://127.0.0.1:${PORT}`);
 });
-app.get('/new-route', (req, res) => {
-    res.send('This is a new route!');
+/**
+ * Routes
+ */
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'src/views/home.html'));
+});
+app.get('/about', (req, res) => {
+    res.sendFile(path.join(__dirname, 'src/views/about.html'));
+});
+app.get('/products', (req, res) => {
+    res.sendFile(path.join(__dirname, 'src/views/products.html'));
 });

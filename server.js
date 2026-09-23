@@ -23,6 +23,18 @@ app.listen(PORT, () => {
     console.log(`Server is running on http://127.0.0.1:${PORT}`);
 });
 /**
+ * Global template variables middleware
+ * 
+ * Makes common variables available to all EJS templates without having to pass
+ * them individually from each route handler
+ */
+app.use((req, res, next) => {
+    // Make NODE_ENV available to all templates
+    res.locals.NODE_ENV = NODE_ENV.toLowerCase() || 'production';
+    // Continue to the next middleware or route handler
+    next();
+});
+/**
  * Routes
  */
 app.get('/', (req, res) => {

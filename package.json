@@ -1,0 +1,10 @@
+{
+    "name": "cse340-practice-Jamison",
+    "dependencies": {},
+    "devDependencies": {},
+    "type": "module",
+    "scripts": {
+        "start": "node server.js"
+    }
+}
+pnpm add express

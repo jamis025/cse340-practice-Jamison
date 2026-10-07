@@ -19,3 +19,15 @@ router.get('/catalog/:courseId', courseDetailPage);
 router.get('/demo', addDemoHeaders, demoPage);
 // Route to trigger a test error
 router.get('/test-error', testErrorPage);
+
+import { Router } from 'express';
+import { getFacultyList, getFacultyDetail } from './faculty/faculty.js';
+// (Import your catalog controller actions here as well)
+
+const router = Router();
+
+// Faculty Routes
+router.get('/faculty', getFacultyList);
+router.get('/faculty/:facultyId', getFacultyDetail);
+
+export default router;

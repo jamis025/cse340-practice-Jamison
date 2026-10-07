@@ -1,1 +1,18 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Faculty Directory</title>
+</head>
+<body>
+    <h1>Faculty Directory</h1>
+    <ul>
+        <% for (const [id, member] of Object.entries(facultyList)) { %>
+            <li>
+                <a href="/faculty/<%= id %>">
+                    <strong><%= member.name %></strong></a> - <%= member.title %> (<%= member.department %>)
+            </li>
+        <% } %>
+    </ul>
+</body>
+</html>

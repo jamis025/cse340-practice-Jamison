@@ -1,1 +1,20 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= member.name %> - Profile</title>
+</head>
+<body>
+    <a href="/faculty">← Back to Directory</a>
+    <h1><%= member.name %></h1>
+    <h2><%= member.title %></h2>
+    <p><strong>Department:</strong> <%= member.department %></p>
+    
+    <h3>Contact Information</h3>
+    <ul>
+        <li><strong>Office:</strong> <%= member.office %></li>
+        <li><strong>Phone:</strong> <%= member.phone %></li>
+        <li><strong>Email:</strong> <a href="mailto:<%= member.email %>"><%= member.email %></a></li>
+    </ul>
+</body>
+</html>

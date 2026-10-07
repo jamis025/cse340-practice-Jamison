@@ -31,3 +31,15 @@ router.get('/faculty', getFacultyList);
 router.get('/faculty/:facultyId', getFacultyDetail);
 
 export default router;
+
+import { Router } from 'express';
+import { getFacultyList, getFacultyDetail } from './faculty/faculty.js';
+// (Import your catalog controller actions here as well)
+
+const router = Router();
+
+// Faculty Routes
+router.get('/faculty', getFacultyList);
+router.get('/faculty/:facultyId', getFacultyDetail);
+
+export default router;

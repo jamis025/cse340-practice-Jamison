@@ -4,11 +4,8 @@
     "devDependencies": {},
     "type": "module",
     "scripts": {
-    # Other fields...
-    "scripts": {
         "dev": "nodemon --env-file=.env server.js",
         "start": "node server.js"
     }
 }
-pnpm add express
-pnpm add -D nodemon
+

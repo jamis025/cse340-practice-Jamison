@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+<main class="error-page">
+    <h1>500</h1>
+    <h2>Something Went Wrong</h2>
+    <p>We are experiencing technical difficulties. Please try again soon.</p>
+    <p><a href="/">Return to the homepage</a></p>
+    <% if (NODE_ENV.includes('dev')) { %>
+        <details open>
+            <summary>Error details (development only)</summary>
+            <pre><%= error %>
+<%= stack %></pre>
+        </details>
+    <% } %>
+</main>
+<%- include('../partials/footer') %>

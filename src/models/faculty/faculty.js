@@ -1,3 +1,4 @@
+// Faculty data object
 const faculty = {
     'brother-jack': {
         name: 'Brother Jack',
@@ -97,4 +98,5 @@ const getSortedFaculty = (sortBy) => {
     // Return the sorted array
     return facultyArray;
 };
-export { getFacultyById, getSortedFaculty };
+const getAllFaculty = () => { return faculty}
+export { getFacultyById, getSortedFaculty, getAllFaculty };

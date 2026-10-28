@@ -1,4 +1,5 @@
-// Enhanced course data object
+
+
 const courses = {
     'CS121': {
         id: 'CS121',

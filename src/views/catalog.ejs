@@ -1,0 +1,15 @@
+<%- include('partials/header') %>
+<main>
+    <h1><%= title %></h1>
+    <p>Choose a course to view its sections. The detail page uses a dynamic route parameter.</p>
+    <div class="course-list">
+        <% Object.values(courses).forEach(course => { %>
+            <article class="course-card">
+                <h2><a href="/catalog/<%= course.id %>"><%= course.title %></a></h2>
+                <p class="course-meta"><%= course.id %> · <%= course.credits %> credits</p>
+                <p><%= course.description %></p>
+            </article>
+        <% }) %>
+    </div>
+</main>
+<%- include('partials/footer') %>

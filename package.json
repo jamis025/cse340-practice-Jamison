@@ -1,11 +1,16 @@
 {
-    "name": "cse340-practice-Jamison",
-    "dependencies": {},
-    "devDependencies": {},
+    "name": "cse340-practice",
     "type": "module",
     "scripts": {
         "dev": "nodemon --env-file=.env server.js",
         "start": "node server.js"
+    },
+    "dependencies": {
+        "ejs": "^6.0.1",
+        "express": "^5.2.1"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.14",
+        "ws": "^8.21.3"
     }
 }
-

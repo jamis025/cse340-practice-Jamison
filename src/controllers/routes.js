@@ -8,6 +8,7 @@ export default router;
 import { addDemoHeaders } from '../middleware/demo/headers.js';
 import { catalogPage, courseDetailPage } from './catalog/catalog.js';
 import { homePage, aboutPage, demoPage, testErrorPage } from './index.js';
+import { facultyListPage } from './faculty/faculty.js';
 
 // Home and basic pages
 router.get('/', homePage);
@@ -19,27 +20,4 @@ router.get('/catalog/:courseId', courseDetailPage);
 router.get('/demo', addDemoHeaders, demoPage);
 // Route to trigger a test error
 router.get('/test-error', testErrorPage);
-
-import { Router } from 'express';
-import { getFacultyList, getFacultyDetail } from './faculty/faculty.js';
-// (Import your catalog controller actions here as well)
-
-const router = Router();
-
-// Faculty Routes
-router.get('/faculty', getFacultyList);
-router.get('/faculty/:facultyId', getFacultyDetail);
-
-export default router;
-
-import { Router } from 'express';
-import { getFacultyList, getFacultyDetail } from './faculty/faculty.js';
-// (Import your catalog controller actions here as well)
-
-const router = Router();
-
-// Faculty Routes
-router.get('/faculty', getFacultyList);
-router.get('/faculty/:facultyId', getFacultyDetail);
-
-export default router;
+router.get('/faculty-directory', facultyListPage);

@@ -1,37 +1,39 @@
-import * as facultyModel from '../../models/faculty/faculty.js';
+import {getAllFaculty, getFacultyById } from "../../models/faculty/faculty.js"
 
-export const getFacultyList = (req, res) => {
-    const facultyList = facultyModel.getAllFaculty();
-    res.render('faculty/list', { facultyList });
+const facultyListPage = async (req, res, next) => {
+    try {
+        const facultyList = await facultyModel.getAllFaculty();
+        
+        res.render('facultyList', { 
+            title: 'Faculty Directory', 
+            facultyList 
+        });
+    } catch (error) {
+        next(error); 
+    }
 };
 
-export const getFacultyDetail = (req, res) => {
-    const facultyId = req.params.facultyId;
-    const member = facultyModel.getFacultyById(facultyId);
+const facultyDetailPage = async (req, res, next) => {
+    try {
+        const facultyId = req.params.id; 
+        const facultyMember = await facultyModel.getFacultyById(facultyId);
 
-    if (!member) {
-        return res.status(404).send('Faculty member not found');
+        if (!facultyMember) {
+            const error = new Error('Faculty member not found');
+            error.status = 404;
+            return next(error); 
+        }
+
+        res.render('facultyDetail', { 
+            title: facultyMember.name, 
+            facultyMember 
+        });
+    } catch (error) {
+        next(error); 
     }
-
-    res.render('faculty/detail', { member });
 };
 
-  const facultyArray = [];
-  for (const key in faculty) {
-    facultyArray.push({ ...faculty[key], id: key });
-  }
-
-  facultyArray.sort((a, b) => {
-    if (a[validSortBy] < b[validSortBy]) {
-      return -1;
-    }
-    if (a[validSortBy] > b[validSortBy]) {
-      return 1;
-    }
-    return 0;
-  });
-
-  return facultyArray;
+export {
+    facultyListPage,
+    facultyDetailPage
 };
-
-export { getFacultyById, getSortedFaculty };

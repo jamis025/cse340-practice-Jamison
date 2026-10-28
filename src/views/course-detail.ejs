@@ -1,0 +1,28 @@
+<%- include('partials/header') %>
+<main>
+    <p><a href="/catalog">← Back to Course Catalog</a></p>
+    <h1><%= course.title %></h1>
+    <p class="course-meta"><%= course.id %> · <%= course.credits %> credits</p>
+    <p><%= course.description %></p>
+
+    <h2>Available Sections</h2>
+    <div class="sort-options">
+        <span>Sort by:</span>
+        <a class="<%= currentSort === 'time' ? 'active' : '' %>" href="/catalog/<%= course.id %>">time</a>
+        <a class="<%= currentSort === 'professor' ? 'active' : '' %>" href="/catalog/<%= course.id %>?sort=professor">professor</a>
+        <a class="<%= currentSort === 'room' ? 'active' : '' %>" href="/catalog/<%= course.id %>?sort=room">room</a>
+    </div>
+    <% if (Object.keys(queryParams).length > 0) { %>
+        <p><strong>Query parameters:</strong> <%= JSON.stringify(queryParams) %></p>
+    <% } %>
+    <div class="section-list">
+        <% course.sections.forEach(section => { %>
+            <article class="section-card">
+                <strong><%= section.time %></strong>
+                <div>Room: <%= section.room %></div>
+                <div>Instructor: <%= section.professor %></div>
+            </article>
+        <% }) %>
+    </div>
+</main>
+<%- include('partials/footer') %>
